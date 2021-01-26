@@ -99,7 +99,7 @@ def model_from_yaml(yaml_string, custom_objects=None):
     # PyYAML 5.x+
     config = yaml.unsafe_load(yaml_string)
   except AttributeError:
-    config = yaml.load(yaml_string)
+    config = yaml.safe_load(yaml_string)
   from tensorflow.python.keras.layers import deserialize  # pylint: disable=g-import-not-at-top
   return deserialize(config, custom_objects=custom_objects)
 
