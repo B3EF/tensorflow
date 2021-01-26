@@ -97,7 +97,7 @@ def model_from_yaml(yaml_string, custom_objects=None):
   # try block is covered by tests depends on the installed version of PyYAML.
   try:
     # PyYAML 5.x+
-    config = yaml.unsafe_load(yaml_string)
+    config = yaml.safe_load(yaml_string)
   except AttributeError:
     config = yaml.safe_load(yaml_string)
   from tensorflow.python.keras.layers import deserialize  # pylint: disable=g-import-not-at-top
